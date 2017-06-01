@@ -5,7 +5,10 @@ import java.util.ArrayList;
 
 
 public class DataManager implements BusinessLogic {
-    DBConnector pc = new DBConnector("alunos.di.uevora.pt","l36926","l36926","miguel");
+    private static DBConnector pc = new DBConnector("alunos.di.uevora.pt","l36926","l36926","miguel");
+    
+    public DataManager() {
+    }
 
     @Override
     public boolean disponibilidade(String nome, String data) {

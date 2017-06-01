@@ -34,7 +34,7 @@ public class ReservasServlet extends HttpServlet {
             throws ServletException, IOException {
         String base = "/jsp/";
         String url = base + "index.jsp";
-        /*String action = request.getParameter("action");
+        String action = request.getParameter("action");
         if (action != null) {
             if (action.equals("search")) {
                 url = base + "SearchOutcome.jsp";
@@ -49,7 +49,7 @@ public class ReservasServlet extends HttpServlet {
             } else if (action.equals("orderConfirmation")) {
                 url = base + "OrderConfirmation.jsp";
             }
-        }*/
+        }
         
         // encaminhar o processamento para o Componente Web adequado
         RequestDispatcher requestDispatcher
