@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <!-- serviço listar espaços --> 
+        <h:outputText value="#{pedidoListarEspacos.espacos}"></h:outputText>
+            <p></p>
+        <h:form>
+           
+             <!-- serviço fazer reserva--> 
+            <h:inputText value="#{pedidoReserva.nome}"></h:inputText>
+            <h:inputText value="#{pedidoReserva.nomeEspaco}"></h:inputText>
+            <h:inputText value="#{pedidoReserva.dataInicio}"></h:inputText>
+            <h:inputText value="#{pedidoReserva.dataFim}"></h:inputText>
+            <h:inputText value="#{pedidoReserva.telefone}"></h:inputText>
+            <h:inputText value="#{pedidoReserva.numUtilizadores}"></h:inputText>
+            <h:commandButton value="clica" action="#{pedidoReserva.setCustoEstimado()}"></h:commandButton>
+            <h:outputText value="#{pedidoReserva.custoEstimado}"></h:outputText>
+         
+        </h:form>
+        
+       <!-- serviço verificar disponibilidade -->
+        <h:form>
+            <h:inputText value="#{pedidoVerificarDispEspaco.nomeEspaco}"></h:inputText>
+            <h:inputText value="#{pedidoVerificarDispEspaco.data}"></h:inputText>
+            <h:commandButton id="disponibilidade" value="toca-me" action="#{pedidoVerificarDispEspaco.setResposta()}"></h:commandButton>
+            <!-- output se disponivel ou nao -->
+            <h:outputText rendered="#{pedidoVerificarDispEspaco.resposta == true}" value="Sim" />  
+            <h:outputText rendered="#{pedidoVerificarDispEspaco.resposta == false}" value="Não" />
+        </h:form>  
+       <h:form>
+           <h:inputText value="#{pedidoListarReservasEspaco.nomeEspaco}"></h:inputText>
+           <h:commandButton value="so mais uma vez" action="#{pedidoListarReservasEspaco.setResposta()}"></h:commandButton>
+           <h:outputText value="#{pedidoListarReservasEspaco.resposta}"></h:outputText>    
+       </h:form>
+
+    </h:body>
+</html>
+
