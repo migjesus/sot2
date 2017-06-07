@@ -19,10 +19,10 @@ public class DBConnector implements Servicos{
     private String USER;
     private String PWD;*/
 
-    private String PG_HOST="localhost";
-    private String PG_DB="postgres";
-    private String USER="postgres";
-    private String PWD="miguel";
+    private String PG_HOST;
+    private String PG_DB;
+    private String USER;
+    private String PWD;
     
     Connection con = null;
     Statement stmt = null;

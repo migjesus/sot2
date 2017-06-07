@@ -1,5 +1,4 @@
 import java.io.Serializable;
-import javax.faces.bean.ManagedBean;
 import java.util.ArrayList;
 
 
@@ -9,7 +8,8 @@ public class DataManager implements Servicos,Serializable {
 
     public DataManager() {
         //pc = new DBConnector("alunos.di.uevora.pt","l36926","l36926","miguel");
-        pc = new DBConnector();
+        pc = new DBConnector("localhost","postgres","postgres","miguel");
+        
     }
 
     
