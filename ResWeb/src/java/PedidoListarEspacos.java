@@ -10,24 +10,21 @@ import javax.faces.bean.ManagedBean;
 @ApplicationScoped
 public class PedidoListarEspacos implements Serializable {
     
-    private String espacos;
+    private ArrayList<String> espacos;
     private DataManager dm= new DataManager();
     
       public PedidoListarEspacos(){
-      this.setEspacos();   
-    }
+        this.setEspacos();   
+      }
  
     
     public void setEspacos(){
-        ArrayList<String> espacos_array = this.dm.listar_espacos();
-        String result="";
-        for(int i = 0;i<espacos_array.size();i++){
-            result+=espacos_array.get(i)+" ";
-        }
-       this.espacos=result;
+         this.espacos = dm.listar_espacos();
+        
+        
     }
     
-    public String getEspacos(){
+    public ArrayList<String> getEspacos(){
         return this.espacos;
     }
     

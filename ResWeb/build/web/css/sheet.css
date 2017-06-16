@@ -1,0 +1,19 @@
+h1{
+    font-family: fantasy;
+    background-size: 60px 200px;
+    text-align: center;
+    
+}
+
+.link{
+    color: red;
+    text-decoration: none;
+    border-style:solid;
+    text-align: center;
+    
+     
+}
+
+div{
+    text-align: center;
+}

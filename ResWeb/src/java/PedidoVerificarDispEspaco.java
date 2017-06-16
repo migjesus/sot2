@@ -3,7 +3,7 @@ import javax.faces.bean.ManagedBean;
 
 @ManagedBean
 public class PedidoVerificarDispEspaco {
-    private boolean resposta;
+    private String resposta;
     private String nomeEspaco;
     private String data;
     private DataManager dm = new DataManager();
@@ -12,10 +12,14 @@ public class PedidoVerificarDispEspaco {
     }
     
     public void setResposta(){
-       resposta = dm.disponibilidade(nomeEspaco, data);
+      boolean ok = dm.disponibilidade(nomeEspaco, data);
+      if(ok)
+          resposta = "Espaço disponivel!";
+      else
+          resposta = "Espaço nao disponivel!";
     }
     
-    public boolean getResposta(){
+    public String getResposta(){
         return resposta;
     }
 

@@ -22,7 +22,7 @@
         </init-param>        
         <init-param>
             <param-name>PWD</param-name>
-            <param-value>miguel</param-value>
+            <param-value>david</param-value>
         </init-param>   
     </servlet>
     <servlet-mapping>

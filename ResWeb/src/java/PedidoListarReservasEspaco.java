@@ -5,19 +5,14 @@ import javax.faces.bean.ManagedBean;
 @ManagedBean
 public class PedidoListarReservasEspaco {
     private String nomeEspaco;
-    private String resposta;
+    private ArrayList<String> resposta;
     private DataManager dm = new DataManager();
 
     public PedidoListarReservasEspaco() {
     }
     
     public void setResposta() {
-        ArrayList<String> reservas = dm.listar_reservas(nomeEspaco);
-        String result="";
-        for(int i = 0;i<reservas.size();i++){
-            result+=reservas.get(i)+" ";
-        }
-       this.resposta=result;
+       this.resposta=dm.listar_reservas(nomeEspaco);
     }
     
     public String getNomeEspaco() {
@@ -30,7 +25,7 @@ public class PedidoListarReservasEspaco {
     }
 
 
-    public String getResposta() {
+    public ArrayList<String> getResposta() {
         return resposta;
     }
 
