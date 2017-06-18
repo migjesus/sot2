@@ -138,7 +138,7 @@ public class DBConnector implements Servicos{
     
     public double reserva(String nome,String nomeEspaco,String dataInicio, String dataFim, int telefone, int numUtilizadores)  {
         double custoEstimado=0;
-        /* try {
+         try {
             connect();
         } catch (Exception ex) {
             Logger.getLogger(DBConnector.class.getName()).log(Level.SEVERE, null, ex);
@@ -148,10 +148,8 @@ public class DBConnector implements Servicos{
         try {
              //se esta query nao retornar nada entao significa que um espaço esta livre
              ResultSet rs = getStatement().executeQuery("SELECT id FROM reservas "
-                     + "WHERE nomeEspaco='"+nomeEspaco+"' and ((dataInicio<='"+dataInicio+"' and dataFim>='"+dataFim+"')"
-                             + "or (dataInicio>='"+dataInicio+"' and dataFim<='"+dataFim+"' )"+
-                                "or (dataInicio>='"+dataInicio+"' and dataFim>='"+dataFim+"' )"+
-                                 "or (dataInicio<='"+dataInicio+"' and dataFim<='"+dataFim+"' ))");
+                     + "WHERE nomeEspaco='"+nomeEspaco+"' and (dataInicio>'"+dataInicio+"' and dataFim<'"+dataFim+"')");
+             
              if(!rs.next()){
                  custoEstimado=-1;
              }
@@ -164,13 +162,15 @@ public class DBConnector implements Servicos{
         } catch (SQLException e) {
             System.err.println("Problems retrieving data from db...");
         }
-         */  
-        if(disponibilidade(nomeEspaco,dataInicio)==false || disponibilidade(nomeEspaco,dataFim)==false){
+         
+        if(disponibilidade(nomeEspaco,dataInicio)==false || disponibilidade(nomeEspaco,dataFim)==false || custoEstimado==0){
             return 0;
+        }
         
         /*if(custoEstimado==0){
             return 0;
         }*/
+       
         else{
             
             try {
