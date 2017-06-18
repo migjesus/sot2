@@ -166,11 +166,6 @@ public class DBConnector implements Servicos{
         if(disponibilidade(nomeEspaco,dataInicio)==false || disponibilidade(nomeEspaco,dataFim)==false || custoEstimado==0){
             return 0;
         }
-        
-        /*if(custoEstimado==0){
-            return 0;
-        }*/
-       
         else{
             
             try {

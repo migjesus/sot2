@@ -8,12 +8,18 @@ h1{
 .link{
     color: red;
     text-decoration: none;
-    border-style:solid;
     text-align: center;
+  
     
      
 }
 
-div{
+.menu{
     text-align: center;
 }
+
+span.opçao{
+    text-align: center;
+    
+}
+
