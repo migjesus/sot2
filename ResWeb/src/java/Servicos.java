@@ -10,4 +10,6 @@ public interface Servicos {
             String dataInicio, String dataFim, int telefone, int numUtilizadores);
     
     public ArrayList<String> listar_reservas(String nomeEspaco);
+    
+    public String reservaID(String dataInicio,String nomeEspaco);
 }

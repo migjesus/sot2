@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Listar Reservas de um Campo</title>
     </h:head>
@@ -11,18 +12,26 @@
         <h2>Listar Reservas de um Campo</h2>
         <p></p>
         <h:form>
-           <h:inputText value="#{pedidoListarReservasEspaco.nomeEspaco}"></h:inputText>
-           <h:commandButton value="listar" action="#{pedidoListarReservasEspaco.setResposta()}"></h:commandButton>
-           <p></p>
-           <p></p>
-           <table align="center" border="black">
-               <th align="center"> Reservas do Espaço </th>
-            <ui:repeat var="item" value="#{pedidoListarReservasEspaco.resposta}">        
-                    <tr>
-                        <td>#{item}</td>
-                    </tr>
-            </ui:repeat>
-        </table>
+           <!-- seleçao de campos-->
+            <h:selectOneRadio id="subscriptions" value="#{pedidoListarReservasEspaco.nomeEspaco}">
+                <f:selectItem id="item1" itemLabel="Futsal" itemValue="futsal" />
+                <f:selectItem id="item2" itemLabel="Padel" itemValue="padel" />
+                <f:selectItem id="item3" itemLabel="Ténis" itemValue="tenis" />
+            </h:selectOneRadio>
+          
+            <h:commandButton value="listar" action="#{pedidoListarReservasEspaco.setResposta()}"></h:commandButton>
+            <p></p>
+            <p></p>
+            <!-- mostrar tabela de reservas campos-->
+            <table align="center" border="black">
+                <th align="center"> Reservas do Espaço </th>
+                <ui:repeat var="item" value="#{pedidoListarReservasEspaco.resposta}">        
+                     <tr>
+                         <td>#{item}</td>
+                     </tr>
+                </ui:repeat>
+            </table>
+            
        </h:form>
     </h:body>
 </html>

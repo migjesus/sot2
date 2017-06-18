@@ -4,7 +4,7 @@ import javax.faces.bean.ManagedBean;
 
 @ManagedBean
 public class PedidoListarReservasEspaco {
-    private String nomeEspaco;
+    private String nomeEspaco = "";
     private ArrayList<String> resposta;
     private DataManager dm = new DataManager();
 

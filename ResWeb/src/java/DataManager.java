@@ -32,6 +32,12 @@ public class DataManager implements Servicos,Serializable {
     public ArrayList<String> listar_reservas(String nomeEspaco)  {
        return pc.listar_reservas(nomeEspaco);
     }
+
+  
+    public String reservaID(String dataInicio, String nomeEspaco) {
+        return pc.reservaID(dataInicio, nomeEspaco);
+    }
+    
     
   
 }

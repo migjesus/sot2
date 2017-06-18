@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Reservas UE</title>
     </h:head>
@@ -12,26 +13,34 @@
         <h1 style="font-family: arial; background-color:#f27121" align="center"> Sistema Reservas UE</h1>
         <h2> Reserva</h2>
         <p></p>
-        <h:form>           
-             <!-- serviço fazer reserva--> 
-             <h:panelGrid border="1" bodyrows="7" columns="2">
-                <h:outputText value="Nome"></h:outputText> 
-                <h:inputText id="nome" value="#{pedidoReserva.nome}"></h:inputText>
-                <h:outputText value="Espaco"></h:outputText>
-                <h:inputText value="#{pedidoReserva.nomeEspaco}"></h:inputText>
-                <h:outputText value="Data Inicio"></h:outputText>
-                <h:inputText value="#{pedidoReserva.dataInicio}"></h:inputText>
-                <h:outputText value="Data Fim"></h:outputText>
-                <h:inputText value="#{pedidoReserva.dataFim}"></h:inputText>
-                <h:outputText value="Telefone"></h:outputText>
-                <h:inputText value="#{pedidoReserva.telefone}"></h:inputText>
-                <h:outputText value="Número Utilizadores"></h:outputText>
-                <h:inputText value="#{pedidoReserva.numUtilizadores}"></h:inputText>
-                <h:outputText value="Custo estimado"></h:outputText>
-                <h:outputText value="#{pedidoReserva.custoEstimado}"></h:outputText>                
-                
-             </h:panelGrid>
-             <h:commandButton value="efetuar reserva" action="#{pedidoReserva.setCustoEstimado()}"></h:commandButton>
+        <h:form>                       
+                    <!-- serviço fazer reserva--> 
+                    <h:panelGrid border="1" bodyrows="1" columns="2" style="width: 300px">
+                       <h:outputText value="Nome"></h:outputText> 
+                       <h:inputText id="nome" value="#{pedidoReserva.nome}"></h:inputText>
+                    </h:panelGrid>
+                    <h:panelGrid border="1" bodyrows="1" columns="1" style="width: 300px">
+                         <h:selectOneRadio id="subscriptions" value="#{pedidoReserva.nomeEspaco}">
+                           <f:selectItem id="item1" itemLabel="Futsal" itemValue="futsal" />
+                           <f:selectItem id="item2" itemLabel="Padel" itemValue="padel" />
+                           <f:selectItem id="item3" itemLabel="Ténis" itemValue="tenis" />
+                       </h:selectOneRadio>
+                    </h:panelGrid>
+                    <h:panelGrid border="1" bodyrows="5" columns="2" style="width: 300px">
+                       <h:outputText value="Data Inicio"></h:outputText>
+                       <h:inputText value="#{pedidoReserva.dataInicio}"></h:inputText>
+                       <h:outputText value="Data Fim"></h:outputText>
+                       <h:inputText value="#{pedidoReserva.dataFim}"></h:inputText>
+                       <h:outputText value="Telefone"></h:outputText>
+                       <h:inputText value="#{pedidoReserva.telefone}"></h:inputText>
+                       <h:outputText value="Número Utilizadores"></h:outputText>
+                       <h:inputText value="#{pedidoReserva.numUtilizadores}"></h:inputText>
+                       <h:outputText value="Custo estimado"></h:outputText>
+                       <h:outputText value="#{pedidoReserva.custoEstimado}"></h:outputText>                
+                    </h:panelGrid>
+                    <h:commandButton value="efetuar reserva" action="#{pedidoReserva.setResposta()}"></h:commandButton>
+                    <p></p>
+                    <h:outputText value="#{pedidoReserva.resposta}"></h:outputText>
         </h:form>
       
     </h:body>

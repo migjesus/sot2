@@ -10,9 +10,11 @@ public class PedidoReserva implements Serializable {
     private String nomeEspaco;
     private String dataInicio;
     private String dataFim;
+    private String id;
     private int telefone;
     private double custoEstimado;
     private int numUtilizadores;
+    private String resposta;
     private DataManager dm = new DataManager();
 
     public PedidoReserva() {
@@ -87,7 +89,27 @@ public class PedidoReserva implements Serializable {
     public void setNumUtilizadores(int numUtilizadores) {
         this.numUtilizadores = numUtilizadores;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId() {
+        this.id=dm.reservaID(dataInicio, nomeEspaco);
+    }
     
+    public void setResposta(){
+        this.setCustoEstimado();
+        this.setId();
+        if(this.custoEstimado!=0)
+            this.resposta = "Reserva efectuada com sucesso! O numero de reserva e: "+id;
+        else
+            this.resposta = "Não foi possível efectuar reserva!";
+    }
+    
+    public String getResposta(){
+        return this.resposta;
+    }
 
     
 }

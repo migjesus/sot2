@@ -3,6 +3,7 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -134,23 +135,54 @@ public class DBConnector implements Servicos{
     }
 
     
+    
     public double reserva(String nome,String nomeEspaco,String dataInicio, String dataFim, int telefone, int numUtilizadores)  {
-           double custoEstimado=0;
+        double custoEstimado=0;
+        /* try {
+            connect();
+        } catch (Exception ex) {
+            Logger.getLogger(DBConnector.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+      
+        try {
+             //se esta query nao retornar nada entao significa que um espaço esta livre
+             ResultSet rs = getStatement().executeQuery("SELECT id FROM reservas "
+                     + "WHERE nomeEspaco='"+nomeEspaco+"' and ((dataInicio<='"+dataInicio+"' and dataFim>='"+dataFim+"')"
+                             + "or (dataInicio>='"+dataInicio+"' and dataFim<='"+dataFim+"' )"+
+                                "or (dataInicio>='"+dataInicio+"' and dataFim>='"+dataFim+"' )"+
+                                 "or (dataInicio<='"+dataInicio+"' and dataFim<='"+dataFim+"' ))");
+             if(!rs.next()){
+                 custoEstimado=-1;
+             }
+             System.out.print(rs);
+             
+                //fecha ligaçao com a bd
+               disconnect();
+               
+          
+        } catch (SQLException e) {
+            System.err.println("Problems retrieving data from db...");
+        }
+         */  
         if(disponibilidade(nomeEspaco,dataInicio)==false || disponibilidade(nomeEspaco,dataFim)==false){
             return 0;
-        }
+        
+        /*if(custoEstimado==0){
+            return 0;
+        }*/
         else{
-         
-               try {
-                   connect();//abrir conexao a bd
-               } catch (Exception ex) {
-                   Logger.getLogger(DBConnector.class.getName()).log(Level.SEVERE, null, ex);
-               }
             
-
             try {
-
-                //query para selecionar custo associado ao campo escolhido para calculo do custo estimado 
+                connect();//abrir conexao a bd
+            } catch (Exception ex) {
+                Logger.getLogger(DBConnector.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            
+            try {
+                
+                //query para selecionar custo associado ao campo escolhido para calculo do custo estimado
                 ResultSet rs = getStatement().
                         executeQuery("SELECT custo FROM campos WHERE nomeEspaco='"+nomeEspaco+"'");
                 int custo =0;
@@ -219,6 +251,40 @@ public class DBConnector implements Servicos{
         
     
          return info;
+    }
+    
+    public String reservaID(String dataInicio,String nomeEspaco){
+          String result=""; 
+          try {
+            //estabelecer conexao com bd
+
+            connect();
+        } catch (Exception ex) {
+            Logger.getLogger(DBConnector.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+      
+        try {
+            
+            //query para selecionar tabela dos campos
+            ResultSet rs = getStatement().executeQuery("SELECT id FROM reservas "
+                     + "WHERE nomeEspaco='"+nomeEspaco+"' and dataInicio='" +dataInicio+"'");
+            //escreve data inicio e data fim de todas as reservas associadas a um determinado campo
+            while (rs.next()) {
+                result  = Integer.toString(rs.getInt("id"));
+            }
+             
+                //fecha ligaçao com a bd
+            disconnect();
+               
+        
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println("Problems retrieving data from db...");
+        }
+        
+        
+        return result;
     }
 }
 
