@@ -5,21 +5,14 @@ h1{
     
 }
 
-.link{
-    color: red;
-    text-decoration: none;
-    text-align: center;
-  
-    
-     
-}
-
-.menu{
+div{
     text-align: center;
 }
 
-span.opçao{
-    text-align: center;
-    
+#opçao{
+  background-color:#0099ff; 
+  color: whitesmoke; 
+  width: 400px; 
+  height:50px; 
+  font-size: 17px;
 }
-
