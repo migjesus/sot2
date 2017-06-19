@@ -4,11 +4,12 @@
     <h:head>
         <title>Listar Espaços</title>
         <link href="css/sheet.css" rel="stylesheet" type="text/css"/>
+
     </h:head>
     <h:body>
         <h1></h1>
-  
-        <table align="center" width="200" border="black">
+        <h:form>
+           <table align="center" width="200" border="black">
             <th>Campos</th>
             <ui:repeat var="item" value="#{pedidoListarEspacos.espacos}">        
                     <tr>
@@ -16,5 +17,8 @@
                     </tr>
             </ui:repeat>
         </table>
+       <h:button value="Voltar" outcome="index.xhtml" /> 
+        </h:form>
+        
     </h:body>
 </html>
