@@ -7,8 +7,8 @@ public class DataManager implements Servicos,Serializable {
    
 
     public DataManager() {
-        //pc = new DBConnector("alunos.di.uevora.pt","l36926","l36926","miguel");
-        pc = new DBConnector("alunos.di.uevora.pt","l33257","l33257","david");
+        pc = new DBConnector("localhost","postgres","postgres","miguel");
+        //pc = new DBConnector("alunos.di.uevora.pt","l33257","l33257","david");
         
     }
 

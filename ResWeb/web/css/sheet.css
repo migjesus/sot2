@@ -3,12 +3,14 @@ h1{
     background-position: center;
     background-image: url("ok.png");
     height: 200px;
+    
 }
 
 div.menu{
     text-align: center;
-    padding: 190px;
-    
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 190px;
 }
 
 #opçao{
@@ -26,9 +28,3 @@ body{
    
 }
 
-#painel{
-    background-color: green;
-    border-bottom-color: red;
-    color: yellow;
-  
-}

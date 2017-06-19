@@ -16,18 +16,18 @@
         <p></p>
         <h:form>                       
                     <!-- serviço fazer reserva--> 
-                    <h:panelGrid  border="1" bodyrows="1" columns="2"  style="width: 360px "  >
+                    <h:panelGrid  border="1" bodyrows="1" columns="2"  style="width: 360px " bgcolor="white" >
                        <h:outputText value="Nome"></h:outputText> 
                        <h:inputText id="nome" value="#{pedidoReserva.nome}" requiredMessage="Nome é obrigatório" required="true"></h:inputText>
                     </h:panelGrid>
-                    <h:panelGrid border="1" bodyrows="1" columns="1" style="width: 360px" >
+                    <h:panelGrid border="1" bodyrows="1" columns="1" style="width: 360px" bgcolor="white">
                          <h:selectOneRadio id="subscriptions" value="#{pedidoReserva.nomeEspaco}" requiredMessage="Indicar o espaço é obrigatório" required="true">
                            <f:selectItem id="item1" itemLabel="Futsal" itemValue="futsal" />
                            <f:selectItem id="item2" itemLabel="Padel" itemValue="padel" />
                            <f:selectItem id="item3" itemLabel="Ténis" itemValue="tenis" />
                        </h:selectOneRadio>
                     </h:panelGrid>
-                    <h:panelGrid border="1" bodyrows="5" columns="2" style="width: 360px">
+                    <h:panelGrid border="1" bodyrows="5" columns="2" style="width: 360px" bgcolor="white">
                        <h:outputText value="Data Inicio"></h:outputText>
                        <h:inputText value="#{pedidoReserva.dataInicio}" requiredMessage="Data Inicio é obrigatória" required="true">
                            <f:validator validatorId="pedidoReserva"></f:validator>
@@ -51,6 +51,7 @@
                     <p></p>
                     <h:outputText value="#{pedidoReserva.resposta}"></h:outputText>
         </h:form>
+        <a href="/ResWeb">Voltar</a>
       
     </h:body>
 </html>

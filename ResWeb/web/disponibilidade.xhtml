@@ -9,27 +9,28 @@
     </h:head>
     <h:body>
         <h1></h1>
-        <h2> Disponibilidade de campo</h2>
+        <h2> Disponibilidade do campo</h2>
         
         
        <!-- serviço verificar disponibilidade -->
         <h:form>
              <!-- output se disponivel ou nao -->
-             <h:panelGrid border="1" bodyrows="1" columns="1" style="width: 360px" >
+             <h:panelGrid border="1" bodyrows="1" columns="1" style="width: 360px; background:white;" >
                          <h:selectOneRadio id="subscriptions" value="#{pedidoVerificarDispEspaco.nomeEspaco}" requiredMessage="Indicar o espaço é obrigatório" required="true">
                            <f:selectItem id="item1" itemLabel="Futsal" itemValue="futsal" />
                            <f:selectItem id="item2" itemLabel="Padel" itemValue="padel" />
                            <f:selectItem id="item3" itemLabel="Ténis" itemValue="tenis" />
                        </h:selectOneRadio>
             </h:panelGrid>
-            <h:panelGrid id="painel" border="1" bodyrows="1" columns="2" style="width: 360px">
+            <h:panelGrid id="painel" border="1" bodyrows="1" columns="2" style="width: 360px; background:white;">
                     <h:outputText value="Data"></h:outputText>
                     <h:inputText value="#{pedidoVerificarDispEspaco.data}" requiredMessage="Data é obrigatória" required="true" validator="pedidoVerificarDispEspaco"></h:inputText>
             </h:panelGrid>
             <h:commandButton value="verificar" action="#{pedidoVerificarDispEspaco.setResposta()}"></h:commandButton>
             <p></p>
             <h:outputText value="#{pedidoVerificarDispEspaco.resposta}"></h:outputText>
-        </h:form>  
+        </h:form>
+        <a href="/ResWeb">Voltar</a>
     </h:body>
 </html>
 

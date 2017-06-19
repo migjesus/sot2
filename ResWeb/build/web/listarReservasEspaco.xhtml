@@ -14,7 +14,7 @@
         <p></p>
         <h:form>
            <!-- seleçao de campos-->
-            <h:panelGrid border="1" bodyrows="1" columns="1" style="width: 360px" >
+            <h:panelGrid border="1" bodyrows="1" columns="1" style="width: 360px" bgcolor="white" >
                 <h:selectOneRadio id="subscriptions" value="#{pedidoListarReservasEspaco.nomeEspaco}" requiredMessage="Indicar o espaço é obrigatório" required="true">
                            <f:selectItem id="item1" itemLabel="Futsal" itemValue="futsal" />
                            <f:selectItem id="item2" itemLabel="Padel" itemValue="padel" />
@@ -26,7 +26,7 @@
             <p></p>
             <p></p>
             <!-- mostrar tabela de reservas campos-->
-            <table align="center" border="black">
+            <table align="center" border="black" bgcolor="white">
                 <th align="center"> Reservas do Espaço </th>
                 <ui:repeat var="item" value="#{pedidoListarReservasEspaco.resposta}">        
                      <tr>
@@ -34,6 +34,7 @@
                      </tr>
                 </ui:repeat>
             </table>
+            <a href="/ResWeb">Voltar</a>
             
        </h:form>
     </h:body>
