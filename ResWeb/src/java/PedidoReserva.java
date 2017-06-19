@@ -1,11 +1,19 @@
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.component.UIComponent;
+import javax.faces.component.UIInput;
+import javax.faces.context.FacesContext;
+import javax.faces.validator.FacesValidator;
+import javax.faces.validator.Validator;
+import javax.faces.validator.ValidatorException;
 
-
-
+@FacesValidator("pedidoReserva")
 @ManagedBean
-public class PedidoReserva implements Serializable {
+public class PedidoReserva implements Serializable, Validator {
     private String nome;
     private String nomeEspaco;
     private String dataInicio;
@@ -107,8 +115,40 @@ public class PedidoReserva implements Serializable {
             this.resposta = "Não foi possível efectuar reserva!";
     }
     
+    
+    
+    
     public String getResposta(){
         return this.resposta;
+    }
+
+    @Override
+   public void validate(FacesContext fc, UIComponent uic, Object o) throws ValidatorException {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        try{
+            Date dateI = format.parse(o.toString());
+            UIInput componente = (UIInput) uic.getAttributes().get("dataf");
+            String dataf = (String) componente.getSubmittedValue();   
+            
+            Date actualDate = new Date();
+            Date dataFinal = format.parse(dataf);
+            
+            if(!dateI.after(actualDate)){
+               FacesMessage msg = new FacesMessage("Data Invalida");
+                throw new ValidatorException(msg);
+            }
+            
+            if(dataFinal.before(dateI)){
+                FacesMessage msg = new FacesMessage("Data final Invalida");
+                throw new ValidatorException(msg);
+            } 
+           
+            
+        }catch( Exception e){
+            FacesMessage msg = new FacesMessage("Formato de data invalido ou data inicial posterior à inicial. Tente: ano-mes-dia h:min");
+            throw new ValidatorException(msg);
+        }  
+        
     }
 
     

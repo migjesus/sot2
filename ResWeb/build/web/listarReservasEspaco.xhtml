@@ -6,18 +6,21 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Listar Reservas de um Campo</title>
+        <link href="css/sheet.css" rel="stylesheet" type="text/css"  />
     </h:head>
     <h:body>
-        <h1 style="font-family: arial; background-color:#f27121" align="center"> Sistema Reservas UE</h1>
+        <h1></h1>
         <h2>Listar Reservas de um Campo</h2>
         <p></p>
         <h:form>
            <!-- seleçao de campos-->
-            <h:selectOneRadio id="subscriptions" value="#{pedidoListarReservasEspaco.nomeEspaco}">
-                <f:selectItem id="item1" itemLabel="Futsal" itemValue="futsal" />
-                <f:selectItem id="item2" itemLabel="Padel" itemValue="padel" />
-                <f:selectItem id="item3" itemLabel="Ténis" itemValue="tenis" />
-            </h:selectOneRadio>
+            <h:panelGrid border="1" bodyrows="1" columns="1" style="width: 360px" >
+                <h:selectOneRadio id="subscriptions" value="#{pedidoListarReservasEspaco.nomeEspaco}" requiredMessage="Indicar o espaço é obrigatório" required="true">
+                           <f:selectItem id="item1" itemLabel="Futsal" itemValue="futsal" />
+                           <f:selectItem id="item2" itemLabel="Padel" itemValue="padel" />
+                           <f:selectItem id="item3" itemLabel="Ténis" itemValue="tenis" />
+                       </h:selectOneRadio>
+            </h:panelGrid>
           
             <h:commandButton value="listar" action="#{pedidoListarReservasEspaco.setResposta()}"></h:commandButton>
             <p></p>

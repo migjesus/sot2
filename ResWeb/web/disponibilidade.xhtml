@@ -2,24 +2,29 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Reservas UE</title>
+        <title>Disponibilidade</title>
+        <link rel="stylesheet" href="css/sheet.css" type="text/css"/>
     </h:head>
     <h:body>
-        <h1 style="font-family: arial; background-color:#f27121" align="center"> Sistema Reservas UE</h1>
+        <h1></h1>
         <h2> Disponibilidade de campo</h2>
         
         
        <!-- serviço verificar disponibilidade -->
         <h:form>
-            
-            <!-- output se disponivel ou nao -->
-            <h:panelGrid border="1" bodyrows="2" columns="2">
-                <h:outputText value="Espaco"></h:outputText>
-                <h:inputText value="#{pedidoVerificarDispEspaco.nomeEspaco}"></h:inputText>
+             <!-- output se disponivel ou nao -->
+             <h:panelGrid border="1" bodyrows="1" columns="1" style="width: 360px" >
+                         <h:selectOneRadio id="subscriptions" value="#{pedidoVerificarDispEspaco.nomeEspaco}" requiredMessage="Indicar o espaço é obrigatório" required="true">
+                           <f:selectItem id="item1" itemLabel="Futsal" itemValue="futsal" />
+                           <f:selectItem id="item2" itemLabel="Padel" itemValue="padel" />
+                           <f:selectItem id="item3" itemLabel="Ténis" itemValue="tenis" />
+                       </h:selectOneRadio>
+            </h:panelGrid>
+            <h:panelGrid id="painel" border="1" bodyrows="1" columns="2" style="width: 360px">
                     <h:outputText value="Data"></h:outputText>
-                    <h:inputText value="#{pedidoVerificarDispEspaco.data}"></h:inputText>
+                    <h:inputText value="#{pedidoVerificarDispEspaco.data}" requiredMessage="Data é obrigatória" required="true"></h:inputText>
             </h:panelGrid>
             <h:commandButton value="verificar" action="#{pedidoVerificarDispEspaco.setResposta()}"></h:commandButton>
             <p></p>

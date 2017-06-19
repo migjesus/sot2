@@ -1,18 +1,34 @@
 h1{
-    font-family: fantasy;
-    background-size: 60px 200px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("ok.png");
+    height: 200px;
+}
+
+div.menu{
     text-align: center;
+    padding: 190px;
     
 }
 
-div{
-    text-align: center;
+#opçao{
+  background-color:#05521c; 
+  color: whitesmoke; 
+  width: 200px; 
+  height:200px; 
+  font-size: 17px;
+  margin: 10px;
 }
 
-#opçao{
-  background-color:#0099ff; 
-  color: whitesmoke; 
-  width: 400px; 
-  height:50px; 
-  font-size: 17px;
+
+body{
+    background-image: url("field3.png");
+   
+}
+
+#painel{
+    background-color: green;
+    border-bottom-color: red;
+    color: yellow;
+  
 }
