@@ -134,12 +134,12 @@ public class PedidoReserva implements Serializable, Validator {
             Date dataFinal = format.parse(dataf);
             
             if(!dateI.after(actualDate)){
-               FacesMessage msg = new FacesMessage("Data Invalida");
+                FacesMessage msg = new FacesMessage("Formato de data invalido ou data inicial posterior à inicial. Tente: ano-mes-dia h:min");
                 throw new ValidatorException(msg);
             }
             
             if(dataFinal.before(dateI)){
-                FacesMessage msg = new FacesMessage("Data final Invalida");
+                FacesMessage msg = new FacesMessage("Formato de data invalido ou data inicial posterior à inicial. Tente: ano-mes-dia h:min");
                 throw new ValidatorException(msg);
             } 
            

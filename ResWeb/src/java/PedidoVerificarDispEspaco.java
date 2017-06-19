@@ -1,8 +1,18 @@
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.component.UIComponent;
+import javax.faces.component.UIInput;
+import javax.faces.context.FacesContext;
+import javax.faces.validator.FacesValidator;
+import javax.faces.validator.Validator;
+import javax.faces.validator.ValidatorException;
 
 @ManagedBean
-public class PedidoVerificarDispEspaco {
+@FacesValidator("pedidoVerificarDispEspaco")
+public class PedidoVerificarDispEspaco implements Validator {
     private String resposta;
     private String nomeEspaco;
     private String data;
@@ -37,6 +47,27 @@ public class PedidoVerificarDispEspaco {
 
     public void setData(String data) {
         this.data = data;
+    }
+
+    @Override
+    public void validate(FacesContext fc, UIComponent uic, Object o) throws ValidatorException {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        try{
+            Date dateI = format.parse(o.toString());            
+            Date actualDate = new Date();
+            System.out.println(dateI.toString());
+            
+            if(!dateI.after(actualDate)){
+        
+               FacesMessage msg = new FacesMessage("Formato de data invalido ou data anterior à actual. Tente: ano-mes-dia h:min");
+               throw new ValidatorException(msg);
+            }
+  
+        }catch( Exception e){
+            FacesMessage msg = new FacesMessage("Formato de data invalido ou data anterior à actual. Tente: ano-mes-dia h:min");
+            throw new ValidatorException(msg);
+        }  
+        
     }
     
     
