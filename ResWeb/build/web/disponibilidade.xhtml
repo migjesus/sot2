@@ -23,7 +23,7 @@
                        </h:selectOneRadio>
             </h:panelGrid>
             <h:panelGrid id="painel" border="1" bodyrows="1" columns="2" style="width: 360px; background:white;">
-                    <h:outputText value="Data"></h:outputText>
+                    <h:outputText value="Data (ano-mes-dia h:min)"></h:outputText>
                     <h:inputText value="#{pedidoVerificarDispEspaco.data}" requiredMessage="Data é obrigatória" required="true" validator="pedidoVerificarDispEspaco"></h:inputText>
             </h:panelGrid>
             <h:commandButton value="verificar" action="#{pedidoVerificarDispEspaco.setResposta()}"></h:commandButton>

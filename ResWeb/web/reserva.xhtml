@@ -28,12 +28,12 @@
                        </h:selectOneRadio>
                     </h:panelGrid>
                     <h:panelGrid border="1" bodyrows="5" columns="2" style="width: 360px" bgcolor="white">
-                       <h:outputText value="Data Inicio"></h:outputText>
+                       <h:outputText value="Data Inicio (ano-mes-dia h:min)"></h:outputText>
                        <h:inputText value="#{pedidoReserva.dataInicio}" requiredMessage="Data Inicio é obrigatória" required="true">
                            <f:validator validatorId="pedidoReserva"></f:validator>
                            <f:attribute name="dataf" value="#{dataf}"></f:attribute>
                        </h:inputText>
-                       <h:outputText value="Data Fim"></h:outputText>
+                       <h:outputText value="Data Fim (ano-mes-dia h:min)"></h:outputText>
                        <h:inputText value="#{pedidoReserva.dataFim}" id="dataf" binding="#{dataf}" requiredMessage="Data Fim é obrigatória" required="true" ></h:inputText>
                        <h:outputText value="Telefone"></h:outputText>
                        <h:inputText value="#{pedidoReserva.telefone}" validatorMessage="O número de telefone tem de possuir 9 digitos"> 
